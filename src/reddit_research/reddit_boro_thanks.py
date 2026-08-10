@@ -19,6 +19,7 @@ from pathlib import Path
 import pandas as pd
 from tqdm import tqdm
 
+DATA_DIR = Path("~/data/1work/2020/advice/subreddits/subreddits25").expanduser()
 PARQUET_FILES = [
     "BestofRedditorUpdates_submissions.parquet",
     "BORUpdates_submissions.parquet",
@@ -140,8 +141,8 @@ def process_args(argv: list[str] | None = None) -> argparse.Namespace:
         "-d",
         "--data-dir",
         type=Path,
-        default=Path("."),
-        help="directory containing parquet files (default: .)",
+        default=DATA_DIR,
+        help=f"directory containing parquet files (default: {DATA_DIR})",
     )
     return parser.parse_args(argv)
 
